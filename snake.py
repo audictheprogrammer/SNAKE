@@ -236,16 +236,13 @@ if __name__ == "__main__":
     cree_fenetre(taille_case * largeur_plateau,
                  taille_case * hauteur_plateau)
     
-    pause = 35 # pause de 25 frames entre l'apparition de chaque pommes
+    pause = 35 # pause de X frames entre l'apparition de chaque pommes
     cmpt = 0
-
-    #ajoute_pommes(pommes, serpent)
-    affiche_obstacle(murs)
 
     # boucle principale
     jouer = True
     while jouer:
-
+        print(direction)
         if random_indice % 2 == 0 :
             choix_color = lst_color[random_indice]
             choix_rempl = lst_color[random_indice + 1]
@@ -258,7 +255,7 @@ if __name__ == "__main__":
 
         # affichage des objets
         efface_tout()
-        if cmpt > pause or len(pommes) == 0:
+        if (cmpt > pause or len(pommes) == 0) and direction != (0,0):
             ajoute_pommes(pommes, serpent)
             cmpt = 0
             random_indice = randint(0, 6)
